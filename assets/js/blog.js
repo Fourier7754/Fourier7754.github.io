@@ -1,5 +1,6 @@
 /* 博客侧边栏 + 列表过滤。
    数据来自 blog/posts.js 的 window.POSTS（必须先于本脚本加载）。
+   列表页在站点根（/，即 index.html），文章页在 /blog/ 下。
    两种模式：
    - 列表页（存在 .post-list）：侧边栏分类/tag 渲染为按钮，点击就地过滤，
      状态同步 URL query（?cat=Opinion&tag=llm），加载时从 URL 恢复。
@@ -7,6 +8,11 @@
    分类单选（All 为默认）；tag 多选，命中任一已选 tag 即显示；分类与 tag 取交集。 */
 (function () {
   var CATEGORIES = ["Benchmark", "Research", "Opinion", "Review"];
+
+  /* 按当前位置拼链接前缀：根下列表页指向 blog/ 内的文章，/blog/ 下的页面指回根 */
+  var atRoot = location.pathname.indexOf("/blog/") === -1;
+  var POST_BASE = atRoot ? "blog/" : "";
+  var LIST_HREF = atRoot ? "index.html" : "../index.html";
 
   var posts = (window.POSTS || []).slice().sort(function (a, b) {
     return a.date < b.date ? 1 : -1;
@@ -75,7 +81,7 @@
         item.setAttribute("data-cat", c);
       } else {
         item = el("a", "blog-side-cat");
-        item.href = c === "" ? "index.html" : "index.html?cat=" + encodeURIComponent(c);
+        item.href = c === "" ? LIST_HREF : LIST_HREF + "?cat=" + encodeURIComponent(c);
       }
       item.appendChild(el("span", "", label));
       item.appendChild(el("span", "count", String(countCat(c))));
@@ -97,7 +103,7 @@
           chip.setAttribute("data-tag", t);
         } else {
           chip = el("a", "tag-chip", "#" + t);
-          chip.href = "index.html?tag=" + encodeURIComponent(t);
+          chip.href = LIST_HREF + "?tag=" + encodeURIComponent(t);
         }
         tagBox.appendChild(chip);
       });
@@ -119,13 +125,13 @@
       var li = document.createElement("li");
 
       var a = el("a", "post-title", p.title);
-      a.href = p.slug + ".html";
+      a.href = POST_BASE + p.slug + ".html";
       li.appendChild(a);
 
       var meta = el("div", "post-meta");
       meta.appendChild(document.createTextNode(p.date + " · "));
       var catLink = el("a", "post-cat", p.category);
-      catLink.href = "index.html?cat=" + encodeURIComponent(p.category);
+      catLink.href = LIST_HREF + "?cat=" + encodeURIComponent(p.category);
       meta.appendChild(catLink);
       li.appendChild(meta);
 
@@ -164,7 +170,7 @@
       var box = el("div", "blog-side-top");
       top.forEach(function (r) {
         var a = el("a", "", r.post.title);
-        a.href = r.post.slug + ".html";
+        a.href = POST_BASE + r.post.slug + ".html";
         a.appendChild(el("span", "count", String(r.n)));
         box.appendChild(a);
       });
