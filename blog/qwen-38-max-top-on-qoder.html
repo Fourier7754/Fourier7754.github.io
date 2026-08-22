@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qwen 3.8 Max Tops the Qoder Harness Round on LiveCuratorBench — Blog of Siqi Du (杜思齐)</title>
+<meta name="description" content="On LiveCuratorBench's Qoder harness round, Qwen 3.8 Max scores 18.67/22—first in the six-model field, ahead of a three-way tie at 18.00—with its edge concentrated in two rubric items no other model held across all three runs.">
+<link rel="canonical" href="https://fourier7754.github.io/siqi_du/blog/qwen-38-max-top-on-qoder.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Siqi Du">
+<meta property="og:title" content="Qwen 3.8 Max Tops the Qoder Harness Round on LiveCuratorBench — Blog of Siqi Du">
+<meta property="og:description" content="On LiveCuratorBench's Qoder harness round, Qwen 3.8 Max scores 18.67/22—first in the six-model field, ahead of a three-way tie at 18.00—with its edge concentrated in two rubric items no other model held across all three runs.">
+<meta property="og:url" content="https://fourier7754.github.io/siqi_du/blog/qwen-38-max-top-on-qoder.html">
+<meta property="og:image" content="https://fourier7754.github.io/siqi_du/images/live-curator-benchmark-qoder-02.png">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Qwen 3.8 Max Tops the Qoder Harness Round on LiveCuratorBench",
+  "datePublished": "2026-08-10",
+  "author": {
+    "@type": "Person",
+    "name": "Siqi Du",
+    "url": "https://fourier7754.github.io/siqi_du/"
+  },
+  "keywords": ["Benchmark", "agents", "evaluation", "memory", "meta-knowledge", "qoder"],
+  "url": "https://fourier7754.github.io/siqi_du/blog/qwen-38-max-top-on-qoder.html"
+}
+</script>
+<meta name="google-site-verification" content="fQZQD0EwLaSOrp3EbALt2rjxHEY9pUvWuh1fS96xgNk">
+<meta name="msvalidate.01" content="56D1B3DBCF345410DA9431AFE01788E7">
+<link rel="icon" href="../images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+<link rel="manifest" href="../images/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css?v=20260801b">
+<script src="../assets/vendor/highlight.min.js" defer></script>
+<script src="posts.js" defer></script>
+<script src="../assets/js/blog.js" defer></script>
+<script src="../assets/js/main.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.hljs) hljs.highlightAll();
+});
+</script>
+<script>
+/* GoatCounter 访问量统计：仅线上加载，本地 file:// 预览不计数 */
+if (location.protocol === "https:") {
+  var gc = document.createElement("script");
+  gc.setAttribute("data-goatcounter", "https://fourier7754.goatcounter.com/count");
+  gc.async = true;
+  gc.src = "//gc.zgo.at/count.js";
+  document.head.appendChild(gc);
+}
+</script>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <a class="masthead-logo" href="../index.html">Siqi Du</a>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="index.html" class="active">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar blog-sidebar">
+    <div class="blog-side-title"><a href="index.html">Blog</a></div>
+    <div class="blog-side-nav"></div>
+    <noscript>
+      <div class="blog-side-section">
+        <div class="blog-side-label">Categories</div>
+        <div class="blog-side-cats">
+          <a class="blog-side-cat" href="index.html"><span>All</span></a>
+          <a class="blog-side-cat" href="index.html?cat=Benchmark"><span>Benchmark</span></a>
+          <a class="blog-side-cat" href="index.html?cat=Research"><span>Research</span></a>
+          <a class="blog-side-cat" href="index.html?cat=Opinion"><span>Opinion</span></a>
+          <a class="blog-side-cat" href="index.html?cat=Review"><span>Review</span></a>
+        </div>
+      </div>
+    </noscript>
+  </aside>
+
+  <main class="content">
+    <a class="post-back" href="index.html">← Back to Blog</a>
+    <h1 class="page-title">Qwen 3.8 Max Tops the Qoder Harness Round on LiveCuratorBench</h1>
+    <div class="post-meta" style="font-size:var(--fs-meta);color:var(--faint);margin-bottom:24px;">2026-08-10</div>
+
+    <div class="post-body">
+      <p>On <a href="live-curator-benchmark-qoder.html">LiveCuratorBench's Qoder harness round</a>, Qwen 3.8 Max scored 18.67/22 over three runs (19/18/19)—first in the six-model field, ahead of a three-way tie at 18.00 between GLM-5.2, DeepSeek v4 Flash, and Qwen 3.7 Plus. Its edge concentrated in two rubric items: keeping the user-message anchor as a standalone knowledge entry (G6), and extracting the always-on inline rule (G7)—the only model that held both across all three runs. At 69.9 credits per run, about $0.26 at the subscription's effective price, it is also the most expensive model in this round; during the eval window its requests were offset by a platform promotion.</p>
+
+      <p><img src="../images/live-curator-benchmark-qoder-01.png" alt="Bar chart of average scores on LiveCuratorBench with one entry per model at its strongest harness, opencode entries in blue and Qoder entries in green: Grok 4.5 (opencode) leads at 19.67; Qwen 3.8 Max's Qoder run ties GLM-5.2 and Kimi K3 at 18.67; Qwen 3.7 Plus appears only with its stronger Qoder result, 18.00" loading="lazy"></p>
+
+      <p><img src="../images/live-curator-benchmark-qoder-02.png" alt="Scatter plot of cost per run versus score with one point per model at its strongest harness, color encoding harness and marker shape encoding vendor: Qwen 3.8 Max carries a Qoder SOTA tag at top right; DeepSeek v4 Flash (official) carries the best-value tag at top left" loading="lazy"></p>
+
+      <p>Four models in these charts ran on both harnesses; the pairing below isolates the harness effect on score and cost.</p>
+
+      <p><img src="../images/live-curator-benchmark-qoder-03.png" alt="Scatter plot pairing the four models tested on both harnesses—DeepSeek v4 Flash, GLM-5.2, Qwen 3.7 Plus, and Kimi K2.7—with dotted lines between each model's opencode and Qoder points: Qwen 3.7 Plus gains 2.67 points on Qoder while the other three drift down by about a point or less" loading="lazy"></p>
+
+      <p>Methodology, per-model details, and the cost table are on the <a href="live-curator-benchmark-qoder.html">Qoder harness round page</a>; the task itself is introduced on the <a href="live-curator-benchmark.html">LiveCuratorBench main page</a>.</p>
+    </div>
+
+    <div class="post-end">
+      <div class="post-end-sep"></div>
+      <div class="post-taxonomy">
+        <a class="cat-badge" href="index.html?cat=Benchmark">Benchmark</a>
+        <a class="tag-chip" href="index.html?tag=agents">#agents</a>
+        <a class="tag-chip" href="index.html?tag=evaluation">#evaluation</a>
+        <a class="tag-chip" href="index.html?tag=memory">#memory</a>
+        <a class="tag-chip" href="index.html?tag=meta-knowledge">#meta-knowledge</a>
+        <a class="tag-chip" href="index.html?tag=qoder">#qoder</a>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <span>© 2026 Siqi Du</span>
+  <span>Last updated: Aug 2026</span>
+</footer>
+
+</body>
+</html>

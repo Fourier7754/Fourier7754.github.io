@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LiveCuratorBench on the Qoder Harness: Six More Models — Blog of Siqi Du (杜思齐)</title>
+<meta name="description" content="Six models reran LiveCuratorBench on the Qoder CLI harness, and the combined charts put both rounds side by side: the same model can swing by up to 2.7 points across harnesses. Qwen 3.8 Max leads the Qoder round at 18.67/22; DeepSeek v4 Flash is the best value on either harness.">
+<link rel="canonical" href="https://fourier7754.github.io/siqi_du/blog/live-curator-benchmark-qoder.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Siqi Du">
+<meta property="og:title" content="LiveCuratorBench on the Qoder Harness: Six More Models — Blog of Siqi Du">
+<meta property="og:description" content="Six models reran LiveCuratorBench on the Qoder CLI harness, and the combined charts put both rounds side by side: the same model can swing by up to 2.7 points across harnesses. Qwen 3.8 Max leads the Qoder round at 18.67/22; DeepSeek v4 Flash is the best value on either harness.">
+<meta property="og:url" content="https://fourier7754.github.io/siqi_du/blog/live-curator-benchmark-qoder.html">
+<meta property="og:image" content="https://fourier7754.github.io/siqi_du/images/live-curator-benchmark-qoder-02.png">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "LiveCuratorBench on the Qoder Harness: Six More Models",
+  "datePublished": "2026-08-10",
+  "author": {
+    "@type": "Person",
+    "name": "Siqi Du",
+    "url": "https://fourier7754.github.io/siqi_du/"
+  },
+  "keywords": ["Benchmark", "agents", "evaluation", "memory", "meta-knowledge", "qoder"],
+  "url": "https://fourier7754.github.io/siqi_du/blog/live-curator-benchmark-qoder.html"
+}
+</script>
+<meta name="google-site-verification" content="fQZQD0EwLaSOrp3EbALt2rjxHEY9pUvWuh1fS96xgNk">
+<meta name="msvalidate.01" content="56D1B3DBCF345410DA9431AFE01788E7">
+<link rel="icon" href="../images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+<link rel="manifest" href="../images/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css?v=20260801b">
+<script src="../assets/vendor/highlight.min.js" defer></script>
+<script src="posts.js" defer></script>
+<script src="../assets/js/blog.js" defer></script>
+<script src="../assets/js/main.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.hljs) hljs.highlightAll();
+});
+</script>
+<script>
+/* GoatCounter 访问量统计：仅线上加载，本地 file:// 预览不计数 */
+if (location.protocol === "https:") {
+  var gc = document.createElement("script");
+  gc.setAttribute("data-goatcounter", "https://fourier7754.goatcounter.com/count");
+  gc.async = true;
+  gc.src = "//gc.zgo.at/count.js";
+  document.head.appendChild(gc);
+}
+</script>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <a class="masthead-logo" href="../index.html">Siqi Du</a>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="index.html" class="active">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar blog-sidebar">
+    <div class="blog-side-title"><a href="index.html">Blog</a></div>
+    <div class="blog-side-nav"></div>
+    <noscript>
+      <div class="blog-side-section">
+        <div class="blog-side-label">Categories</div>
+        <div class="blog-side-cats">
+          <a class="blog-side-cat" href="index.html"><span>All</span></a>
+          <a class="blog-side-cat" href="index.html?cat=Benchmark"><span>Benchmark</span></a>
+          <a class="blog-side-cat" href="index.html?cat=Research"><span>Research</span></a>
+          <a class="blog-side-cat" href="index.html?cat=Opinion"><span>Opinion</span></a>
+          <a class="blog-side-cat" href="index.html?cat=Review"><span>Review</span></a>
+        </div>
+      </div>
+    </noscript>
+  </aside>
+
+  <main class="content">
+    <a class="post-back" href="index.html">← Back to Blog</a>
+    <h1 class="page-title">LiveCuratorBench on the Qoder Harness: Six More Models</h1>
+    <div class="post-meta" style="font-size:var(--fs-meta);color:var(--faint);margin-bottom:24px;">2026-08-10</div>
+
+    <div class="post-body">
+      <div class="post-tldr">
+        <div class="post-tldr-label">TL;DR</div>
+        <p>Six models reran LiveCuratorBench on the Qoder CLI harness. The charts below keep one entry per model—its stronger harness result—and a separate pairing view isolates the four models tested on both harnesses: the same model can swing by up to 2.7 points across harnesses. Qwen 3.8 Max leads the Qoder round at 18.67/22; DeepSeek v4 Flash is the best value on either harness.</p>
+      </div>
+
+      <p>I reran <a href="live-curator-benchmark.html">LiveCuratorBench</a> on a second harness. The first thirteen-model round ran the Curator agent on my opencode fork; this round ports the same agent—main loop, reasoner subagent, stage/review/commit tool layer—to Qoder CLI CN (<code>qoderclicn</code> 1.1.17), running headless. The task, the source document, the 22-point rubric, and the scoring are unchanged; the harness underneath is not. The charts below keep one entry per model—its stronger harness result—opencode in blue, Qoder in green; a third chart pairs the four models that ran on both harnesses, so the same model's shift is visible directly. These shifts are descriptive, not a controlled experiment: the two harnesses differ in tool layer, permission model, and default parameters, and each cell is three runs.</p>
+
+      <p><img src="../images/live-curator-benchmark-qoder-01.png" alt="Bar chart of average scores on LiveCuratorBench with one entry per model at its stronger harness, opencode entries in blue and Qoder entries in green: Grok 4.5 (opencode) leads overall at 19.67; Qwen 3.8 Max's Qoder run ties GLM-5.2 and Kimi K3 at 18.67; Qwen 3.7 Plus appears only with its Qoder result, 18.00" loading="lazy"></p>
+
+      <p>Each model ran three independent times per harness with vendor-default settings. Two measurement caveats. First, the Qoder backend does not report token counts at all—every usage field in the session logs reads zero—so Qoder-side costs are metered in Qoder credits, the platform's billing unit, converted at the price I actually paid for the subscription.<sup>1</sup> Second, the two harnesses therefore meter cost differently (tokens on opencode, credits on Qoder): cross-harness cost reads are directional, not exact. The four models that ran on both harnesses are paired in a dedicated scatter further below.<sup>2</sup></p>
+
+      <table>
+        <caption>Table 1 · Score and cost per run on the Qoder harness (3 runs per model)</caption>
+        <thead>
+          <tr><th>Model</th><th>R1</th><th>R2</th><th>R3</th><th>Avg</th><th>Range</th><th>Credits/run <sup>1</sup></th><th>Cost/run <sup>1</sup></th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Qwen 3.8 Max</td><td>19</td><td>18</td><td>19</td><td><strong>18.67</strong></td><td>18–19</td><td>69.9</td><td>$0.259</td></tr>
+          <tr><td>GLM-5.2</td><td>18</td><td>18</td><td>18</td><td><strong>18.00</strong></td><td>18–18</td><td>47.9</td><td>$0.177</td></tr>
+          <tr><td>DeepSeek v4 Flash</td><td>18</td><td>18</td><td>18</td><td><strong>18.00</strong></td><td>18–18</td><td>5.0</td><td>$0.018</td></tr>
+          <tr><td>Qwen 3.7 Plus</td><td>18</td><td>17</td><td>19</td><td><strong>18.00</strong></td><td>17–19</td><td>7.3</td><td>$0.027</td></tr>
+          <tr><td>Kimi K2.7 Code</td><td>14</td><td>13</td><td>19</td><td><strong>15.33</strong></td><td>13–19</td><td>42.8</td><td>$0.159</td></tr>
+          <tr><td>Qwen 3.6 Flash</td><td>16</td><td>17</td><td>6</td><td><strong>13.00</strong></td><td>6–17</td><td>5.6</td><td>$0.021</td></tr>
+        </tbody>
+      </table>
+
+      <p><sup>1</sup> Qoder credits metered from session logs (main agent + reasoner subagent), converted at the price actually paid: ¥159 per 6,000 credits ≈ $0.00371 per credit (¥7.15 = $1). Qwen 3.8 Max requests were offset by a platform promotion during the eval window (<code>billable=false</code> in the logs); its credits are counted the same way as the other five models. opencode-side costs are the token-metered dollars from the <a href="live-curator-benchmark.html">first round</a>.</p>
+
+      <p><sup>2</sup> Pairing notes: the Qoder DeepSeek v4 Flash point pairs with the official opencode endpoint (the opencode go channel scored 19.00). Kimi K2.7 Code is the K2.7 variant served on Qoder's coding channel; the opencode round ran K2.7 via the kimi-for-coding plan.</p>
+
+      <p><img src="../images/live-curator-benchmark-qoder-02.png" alt="Scatter plot of cost per run versus score with one point per model at its stronger harness, color encoding harness and marker shape encoding vendor: DeepSeek v4 Flash (official) sits top left as the best value; Qwen 3.8 Max (Qoder) sits top right as the Qoder round's SOTA" loading="lazy"></p>
+
+      <h2>What the results show</h2>
+
+      <p><img src="../images/live-curator-benchmark-qoder-03.png" alt="Scatter plot pairing the four models tested on both harnesses—DeepSeek v4 Flash, GLM-5.2, Qwen 3.7 Plus, and Kimi K2.7—with dotted lines between each model's opencode and Qoder points: Qwen 3.7 Plus shows the largest upward jump; the other three drift down by about one point or less, and all four move to cheaper costs on Qoder" loading="lazy"></p>
+
+      <p><strong>The same model can land in a different tier on a different harness.</strong> Four models ran on both. Qwen 3.7 Plus is the big mover: 15.33 on opencode, 18.00 on Qoder—a 2.67-point jump from the bottom half to a tie for second. Moving the other way, DeepSeek v4 Flash drops 1.33 (19.33 official to 18.00), GLM-5.2 drops 0.67 (18.67 to 18.00), and Kimi K2.7 slips 1.00 (16.33 to 15.33 for the K2.7 Code variant). A 0.67-point move is inside single-run noise; the other three are not.</p>
+
+      <p><strong>The big mover's failure mode changed, not just its score.</strong> On opencode, Qwen 3.7 Plus under-extracted and swung hard—its meta-knowledge count went 9/2/5 across the three runs, and one run collapsed to 14. On Qoder it extracted fully (18/17/19) and mostly held the two items that separate this round's front row: keeping the user-message anchor as a standalone entry (G6) and extracting the always-on inline rule (G7). Same model, same task, same rubric; the harness swap turned an erratic weak run into a stable front-row one.</p>
+
+      <p><strong>Model traits persist across harnesses even when scores move.</strong> GLM-5.2 and DeepSeek v4 Flash were the zero-variance models on opencode and stayed zero-variance on Qoder (18/18/18 each). Kimi K2.7 was volatile on opencode (15–17) and stayed volatile on Qoder (13–19, including one clean 19). Stability travels with the model; absolute score travels with the harness.</p>
+
+      <p><strong>The two hard probes did not move at all.</strong> G5—recognizing that the input itself is a pollution source—stuck at 1 of 2 points in all 18 Qoder runs, replicating the opencode ceiling where full marks were rare and clustered. B1—"line numbers reduce hallucination" as explicit knowledge—scored 0 in all 18 runs, matching 39 out of 39 zeros on opencode. Whatever the harness changed for mid-field models, it did not touch these two items.</p>
+
+      <p><strong>Qoder's two exclusive models bracket the round.</strong> Qwen 3.8 Max takes first place at 18.67 (18–19), the only model that held both G6 and G7 across all three runs; at 69.9 credits (≈$0.259) it is also the round's most expensive. Qwen 3.6 Flash trails at 13.00 with the round's only single-run collapse—its third run produced zero meta-knowledge entries and scored 6.</p>
+
+      <p><strong>Every shared model got cheaper per run on Qoder—directionally.</strong> Qwen 3.7 Plus moved from $0.068 to $0.027, DeepSeek v4 Flash from $0.027 to $0.018, GLM-5.2 from $0.240 to $0.177, Kimi K2.7 from $0.222 to $0.159. The two metering systems are not the same, so read these as direction, not exact savings. One harness-specific behavior: two Qoder runs (Qwen 3.8 Max R3, Kimi K2.7 Code R3) staged their bundle twice—an intermediate state, then a completed re-stage—which the opencode round never produced.</p>
+
+      <p>Task definition, evaluation criteria, and the first thirteen-model results are on the <a href="live-curator-benchmark.html">LiveCuratorBench main page</a>.</p>
+    </div>
+
+    <div class="post-end">
+      <div class="post-end-sep"></div>
+      <div class="post-taxonomy">
+        <a class="cat-badge" href="index.html?cat=Benchmark">Benchmark</a>
+        <a class="tag-chip" href="index.html?tag=agents">#agents</a>
+        <a class="tag-chip" href="index.html?tag=evaluation">#evaluation</a>
+        <a class="tag-chip" href="index.html?tag=memory">#memory</a>
+        <a class="tag-chip" href="index.html?tag=meta-knowledge">#meta-knowledge</a>
+        <a class="tag-chip" href="index.html?tag=qoder">#qoder</a>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <span>© 2026 Siqi Du</span>
+  <span>Last updated: Aug 2026</span>
+</footer>
+
+</body>
+</html>

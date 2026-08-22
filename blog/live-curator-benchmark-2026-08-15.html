@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LiveCuratorBench 2026-08-15 Release: GLM-5.3, Grok 4.6, DeepSeek v4 Pro 0813 — Blog of Siqi Du (杜思齐)</title>
+<meta name="description" content="Three new opencode-harness results on LiveCuratorBench: Grok 4.6 scores 19.33/22, tying DeepSeek v4 Flash (official) for second and landing below Grok 4.5's 19.67; DeepSeek v4 Pro's stable 0813 release scores 19.00 with zero run-to-run variance, +1.33 over the preview version tested in July; GLM-5.3 scores 18.67/22, tying GLM-5.2 on the same channel with an identical run profile.">
+<link rel="canonical" href="https://fourier7754.github.io/siqi_du/blog/live-curator-benchmark-2026-08-15.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Siqi Du">
+<meta property="og:title" content="LiveCuratorBench 2026-08-15 Release: GLM-5.3, Grok 4.6, DeepSeek v4 Pro 0813 — Blog of Siqi Du">
+<meta property="og:description" content="Three new opencode-harness results on LiveCuratorBench: Grok 4.6 scores 19.33/22, tying DeepSeek v4 Flash (official) for second and landing below Grok 4.5's 19.67; DeepSeek v4 Pro's stable 0813 release scores 19.00 with zero run-to-run variance, +1.33 over the preview version tested in July; GLM-5.3 scores 18.67/22, tying GLM-5.2 on the same channel with an identical run profile.">
+<meta property="og:url" content="https://fourier7754.github.io/siqi_du/blog/live-curator-benchmark-2026-08-15.html">
+<meta property="og:image" content="https://fourier7754.github.io/siqi_du/images/live-curator-benchmark-qoder-02.png">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "LiveCuratorBench 2026-08-15 Release: GLM-5.3, Grok 4.6, DeepSeek v4 Pro 0813",
+  "datePublished": "2026-08-15",
+  "author": {
+    "@type": "Person",
+    "name": "Siqi Du",
+    "url": "https://fourier7754.github.io/siqi_du/"
+  },
+  "keywords": ["Benchmark", "agents", "evaluation", "memory", "meta-knowledge"],
+  "url": "https://fourier7754.github.io/siqi_du/blog/live-curator-benchmark-2026-08-15.html"
+}
+</script>
+<meta name="google-site-verification" content="fQZQD0EwLaSOrp3EbALt2rjxHEY9pUvWuh1fS96xgNk">
+<meta name="msvalidate.01" content="56D1B3DBCF345410DA9431AFE01788E7">
+<link rel="icon" href="../images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+<link rel="manifest" href="../images/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css?v=20260801b">
+<script src="../assets/vendor/highlight.min.js" defer></script>
+<script src="posts.js" defer></script>
+<script src="../assets/js/blog.js" defer></script>
+<script src="../assets/js/main.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.hljs) hljs.highlightAll();
+});
+</script>
+<script>
+/* GoatCounter 访问量统计：仅线上加载，本地 file:// 预览不计数 */
+if (location.protocol === "https:") {
+  var gc = document.createElement("script");
+  gc.setAttribute("data-goatcounter", "https://fourier7754.goatcounter.com/count");
+  gc.async = true;
+  gc.src = "//gc.zgo.at/count.js";
+  document.head.appendChild(gc);
+}
+</script>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <a class="masthead-logo" href="../index.html">Siqi Du</a>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="index.html" class="active">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar blog-sidebar">
+    <div class="blog-side-title"><a href="index.html">Blog</a></div>
+    <div class="blog-side-nav"></div>
+    <noscript>
+      <div class="blog-side-section">
+        <div class="blog-side-label">Categories</div>
+        <div class="blog-side-cats">
+          <a class="blog-side-cat" href="index.html"><span>All</span></a>
+          <a class="blog-side-cat" href="index.html?cat=Benchmark"><span>Benchmark</span></a>
+          <a class="blog-side-cat" href="index.html?cat=Research"><span>Research</span></a>
+          <a class="blog-side-cat" href="index.html?cat=Opinion"><span>Opinion</span></a>
+          <a class="blog-side-cat" href="index.html?cat=Review"><span>Review</span></a>
+        </div>
+      </div>
+    </noscript>
+  </aside>
+
+  <main class="content">
+    <a class="post-back" href="index.html">← Back to Blog</a>
+    <h1 class="page-title">LiveCuratorBench 2026-08-15 Release: GLM-5.3, Grok 4.6, DeepSeek v4 Pro 0813</h1>
+    <div class="post-meta" style="font-size:var(--fs-meta);color:var(--faint);margin-bottom:24px;">2026-08-15</div>
+
+    <div class="post-body">
+      <div class="post-tldr">
+        <div class="post-tldr-label">TL;DR</div>
+        <p>Three new opencode-harness results on LiveCuratorBench: Grok 4.6 scores 19.33/22, tying DeepSeek v4 Flash (official) for second and landing below Grok 4.5's 19.67; DeepSeek v4 Pro's stable 0813 release scores 19.00 with zero run-to-run variance, +1.33 over the preview version tested in July; GLM-5.3 scores 18.67/22, tying GLM-5.2 on the same channel with an identical run profile.</p>
+      </div>
+
+      <p>Three models joined <a href="live-curator-benchmark.html">LiveCuratorBench</a> on the opencode harness, same bench variant and 22-point rubric as the first two rounds: Grok 4.6 (xAI official endpoint), GLM-5.3 (Zhipu coding plan), and DeepSeek v4 Pro 0813 (DeepSeek official endpoint). The last one is the stable release—shipped 2026-08-13 under an unchanged API model ID—of the model whose preview version was tested on July 31, so the two versions are charted as separate entries. The charts below follow the comparison rule introduced with the <a href="live-curator-benchmark-qoder.html">Qoder harness round</a>: one entry per model, its strongest harness result—so each new model adds exactly one bar and one point. None of the three has a Qoder run yet, so the harness-pairing chart on the Qoder round page is unchanged.</p>
+
+      <p><img src="../images/live-curator-benchmark-qoder-01.png" alt="Bar chart of average scores on LiveCuratorBench with one entry per model at its strongest harness: Grok 4.5 (opencode) leads at 19.67; Grok 4.6 ties DeepSeek v4 Flash (official) at 19.33; DeepSeek v4 Pro 0813 follows at 19.00; GLM-5.3 joins a four-way tie at 18.67" loading="lazy"></p>
+
+      <p><img src="../images/live-curator-benchmark-qoder-02.png" alt="Scatter plot of cost per run versus score with one point per model at its strongest harness, color encoding harness and marker shape encoding vendor: DeepSeek v4 Pro 0813 sits upper-middle at $0.069 and 19.00; Grok 4.6 sits at top right near Kimi K3's cost; Grok 4.5 keeps the SOTA tag; DeepSeek v4 Flash (official) keeps the best-value tag" loading="lazy"></p>
+
+      <p>Each model ran three independent times with vendor-default settings. Grok 4.6's and DeepSeek v4 Pro 0813's costs are metered from opencode session records; GLM-5.3 runs on a subscription channel, so its cost is a list-price estimate. The automated scorer over-credited rubric item B1 in seven of the nine new runs—line numbers appeared in scan-output formatting without becoming "line numbers reduce hallucination" knowledge—and missed one Q1 item; all corrections were made in manual review and annotated in the score files.</p>
+
+      <table>
+        <caption>Table 1 · Score, tokens, and cost per run (2026-08-15 round, 3 runs per model)</caption>
+        <thead>
+          <tr><th>Model</th><th>R1</th><th>R2</th><th>R3</th><th>Avg</th><th>Range</th><th>Tokens/run</th><th>Cost/run</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Grok 4.6</td><td>19</td><td>20</td><td>19</td><td><strong>19.33</strong></td><td>19–20</td><td>205.3K</td><td>$0.469 <sup>1</sup></td></tr>
+          <tr><td>DeepSeek v4 Pro 0813</td><td>19</td><td>19</td><td>19</td><td><strong>19.00</strong></td><td>19–19</td><td>242.0K</td><td>$0.069 <sup>1</sup></td></tr>
+          <tr><td>GLM-5.3</td><td>18</td><td>19</td><td>19</td><td><strong>18.67</strong></td><td>18–19</td><td>182.5K</td><td>$0.189 <sup>2</sup></td></tr>
+        </tbody>
+      </table>
+
+      <p><sup>1</sup> Metered from opencode session logs (main agent + reasoner subagent): Grok 4.6 via the xAI official endpoint, DeepSeek v4 Pro 0813 via the DeepSeek official endpoint.</p>
+
+      <p><sup>2</sup> Zhipu coding plan subscription, list-price estimate: ¥1.354 per run (same list price as GLM-5.2), converted at ¥7.15 = $1. Token counts are session-log sums (input + output + reasoning + cache read).</p>
+
+      <h2>What the results show</h2>
+
+      <p><strong>DeepSeek v4 Pro 0813 is the round's real mover.</strong> The stable release scores 19.00 with an identical 19 in all three runs, +1.33 over the preview version measured on July 31 (17/19/17). The gain concentrates in three rubric items that moved from 1 to 2 points—the method-selection framework (G3), the user-message anchor as a standalone entry (G6), and the always-on inline rule (G7)—and it hit the input-pollution probe (G5) in one of three runs, where the preview never scored. The B1 probe stayed at 0. Its reasoning budget rose to 34.4K tokens per run, 2.5× the preview's, while output length stayed flat and total tokens grew only 7%—the improvement came from thinking longer, not writing more.</p>
+
+      <p><strong>Grok 4.6 does not move the ceiling.</strong> At 19.33 it ties DeepSeek v4 Flash (official) for second place, 0.34 below Grok 4.5's 19.67. The gap concentrates in R3 (19 vs 20): that run failed to keep the user-message anchor as a standalone knowledge entry (G6, 1 of 2 points)—an item Grok 4.5 held at full marks in all three of its runs. A generation swap on the same harness and the same task: no gain. At $0.469 per run it is also near the top of the opencode cost range, second only to Kimi K3 ($0.480).</p>
+
+      <p><strong>GLM-5.3 is a lateral move.</strong> Its 18.67 ties GLM-5.2 on the same channel, with an identical run profile (18/19/19 on both), landing in the four-way first-tier cluster with GLM-5.2, Kimi K3, and Qwen 3.8 Max (Qoder). Whatever changed between GLM generations did not show up on this task.</p>
+
+      <p>Task definition, rubric, and the first thirteen-model results are on the <a href="live-curator-benchmark.html">LiveCuratorBench main page</a>; the six-model second harness round is on the <a href="live-curator-benchmark-qoder.html">Qoder harness round page</a>.</p>
+    </div>
+
+    <div class="post-end">
+      <div class="post-end-sep"></div>
+      <div class="post-taxonomy">
+        <a class="cat-badge" href="index.html?cat=Benchmark">Benchmark</a>
+        <a class="tag-chip" href="index.html?tag=agents">#agents</a>
+        <a class="tag-chip" href="index.html?tag=evaluation">#evaluation</a>
+        <a class="tag-chip" href="index.html?tag=memory">#memory</a>
+        <a class="tag-chip" href="index.html?tag=meta-knowledge">#meta-knowledge</a>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <span>© 2026 Siqi Du</span>
+  <span>Last updated: Aug 2026</span>
+</footer>
+
+</body>
+</html>
