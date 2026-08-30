@@ -9,10 +9,18 @@
    注意：必须用 .js（window.POSTS）而非 .json，file:// 下浏览器拦截 fetch。 */
 window.POSTS = [
   {
+    slug: "live-curator-benchmark-2026-08-30",
+    title: "LiveCuratorBench 2026-08-30 Release: Qwen 3.8 Flash and GLM-5.3 Flash",
+    date: "2026-08-30",
+    excerpt: "Two new Flash-tier models top their harnesses on LiveCuratorBench: Qwen 3.8 Flash scores 20.67/22 on the Qoder harness, the highest score recorded on the benchmark and the only Qoder model past 19, while GLM-5.3 Flash scores 19.67/22 on the opencode harness, the first model there to hold the input-pollution probe in all three runs. A control retest attributes the GLM gain to the model rather than the harness upgrade, and a rubric-calibration audit corrects two published scores (Grok 4.6 to 18.33, HY3 to 18.00).",
+    category: "Benchmark",
+    tags: ["agents", "evaluation", "memory", "meta-knowledge", "qoder"]
+  },
+  {
     slug: "live-curator-benchmark-2026-08-15",
     title: "LiveCuratorBench 2026-08-15 Release: GLM-5.3, Grok 4.6, DeepSeek v4 Pro 0813",
     date: "2026-08-15",
-    excerpt: "Three new opencode-harness results on LiveCuratorBench: Grok 4.6 scores 19.33/22, tying DeepSeek v4 Flash (official) for second and landing below Grok 4.5's 19.67; DeepSeek v4 Pro's stable 0813 release scores 19.00 with zero run-to-run variance, +1.33 over the preview version tested in July; GLM-5.3 scores 18.67/22, tying GLM-5.2 on the same channel with an identical run profile.",
+    excerpt: "Three new opencode-harness results on LiveCuratorBench: Grok 4.6 scores 18.33/22 after a rubric-calibration audit lowered its initial 19.33, leaving it 1.33 below predecessor Grok 4.5; DeepSeek v4 Pro's stable 0813 release scores 19.00 with zero run-to-run variance, +1.33 over the preview version tested in July; GLM-5.3 scores 18.67/22, tying GLM-5.2 on the same channel with an identical run profile.",
     category: "Benchmark",
     tags: ["agents", "evaluation", "memory", "meta-knowledge"]
   },

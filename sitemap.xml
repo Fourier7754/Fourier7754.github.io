@@ -2,31 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://fourier7754.github.io/siqi_du/</loc>
-    <lastmod>2026-08-22</lastmod>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://fourier7754.github.io/siqi_du/blog/live-curator-benchmark-2026-08-30.html</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://fourier7754.github.io/siqi_du/blog/live-curator-benchmark-2026-08-15.html</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://fourier7754.github.io/siqi_du/blog/qwen-38-max-top-on-qoder.html</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://fourier7754.github.io/siqi_du/blog/live-curator-benchmark-qoder.html</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://fourier7754.github.io/siqi_du/blog/live-curator-benchmark.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>

@@ -100,7 +100,7 @@ if (location.protocol === "https:") {
 
       <p>I reran <a href="live-curator-benchmark.html">LiveCuratorBench</a> on a second harness. The first thirteen-model round ran the Curator agent on my opencode fork; this round ports the same agent—main loop, reasoner subagent, stage/review/commit tool layer—to Qoder CLI CN (<code>qoderclicn</code> 1.1.17), running headless. The task, the source document, the 22-point rubric, and the scoring are unchanged; the harness underneath is not. The charts below keep one entry per model—its stronger harness result—opencode in blue, Qoder in green; a third chart pairs the four models that ran on both harnesses, so the same model's shift is visible directly. These shifts are descriptive, not a controlled experiment: the two harnesses differ in tool layer, permission model, and default parameters, and each cell is three runs.</p>
 
-      <p><img src="../images/live-curator-benchmark-qoder-01.png" alt="Bar chart of average scores on LiveCuratorBench with one entry per model at its stronger harness, opencode entries in blue and Qoder entries in green: Grok 4.5 (opencode) leads overall at 19.67; Qwen 3.8 Max's Qoder run ties GLM-5.2 and Kimi K3 at 18.67; Qwen 3.7 Plus appears only with its Qoder result, 18.00" loading="lazy"></p>
+      <p><img src="../images/live-curator-benchmark-qoder-01.png" alt="Bar chart of average scores on LiveCuratorBench with one entry per model at its stronger harness, opencode entries in blue and Qoder entries in green: Qwen 3.8 Flash (Qoder) leads at 20.67; GLM-5.3, GLM-5.3 Flash, and Grok 4.5 tie at 19.67; Qwen 3.8 Max's Qoder run sits in the 18.67 cluster; Qwen 3.7 Plus appears only with its Qoder result, 18.00" loading="lazy"></p>
 
       <p>Each model ran three independent times per harness with vendor-default settings. Two measurement caveats. First, the Qoder backend does not report token counts at all—every usage field in the session logs reads zero—so Qoder-side costs are metered in Qoder credits, the platform's billing unit, converted at the price I actually paid for the subscription.<sup>1</sup> Second, the two harnesses therefore meter cost differently (tokens on opencode, credits on Qoder): cross-harness cost reads are directional, not exact. The four models that ran on both harnesses are paired in a dedicated scatter further below.<sup>2</sup></p>
 
@@ -123,7 +123,7 @@ if (location.protocol === "https:") {
 
       <p><sup>2</sup> Pairing notes: the Qoder DeepSeek v4 Flash point pairs with the official opencode endpoint (the opencode go channel scored 19.00). Kimi K2.7 Code is the K2.7 variant served on Qoder's coding channel; the opencode round ran K2.7 via the kimi-for-coding plan.</p>
 
-      <p><img src="../images/live-curator-benchmark-qoder-02.png" alt="Scatter plot of cost per run versus score with one point per model at its stronger harness, color encoding harness and marker shape encoding vendor: DeepSeek v4 Flash (official) sits top left as the best value; Qwen 3.8 Max (Qoder) sits top right as the Qoder round's SOTA" loading="lazy"></p>
+      <p><img src="../images/live-curator-benchmark-qoder-02.png" alt="Scatter plot of cost per run versus score with one point per model at its stronger harness, color encoding harness and marker shape encoding vendor: Qwen 3.8 Flash (Qoder SOTA) sits top left at $0.020 and 20.67; DeepSeek v4 Flash (official) carries the best-value tag below it; Grok 4.5 and GLM-5.3 Flash carry the opencode SOTA tags at 19.67" loading="lazy"></p>
 
       <h2>What the results show</h2>
 

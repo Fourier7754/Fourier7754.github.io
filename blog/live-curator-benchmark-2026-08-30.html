@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LiveCuratorBench 2026-08-30 Release: Qwen 3.8 Flash and GLM-5.3 Flash — Blog of Siqi Du (杜思齐)</title>
+<meta name="description" content="Two new Flash-tier models top their harnesses on LiveCuratorBench: Qwen 3.8 Flash scores 20.67/22 on the Qoder harness, the highest score recorded on the benchmark and the only Qoder model past 19, while GLM-5.3 Flash scores 19.67/22 on the opencode harness, the first model there to hold the input-pollution probe in all three runs. A control retest attributes the GLM gain to the model rather than the harness upgrade, and a rubric-calibration audit corrects two published scores (Grok 4.6 to 18.33, HY3 to 18.00).">
+<link rel="canonical" href="https://fourier7754.github.io/siqi_du/blog/live-curator-benchmark-2026-08-30.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Siqi Du">
+<meta property="og:title" content="LiveCuratorBench 2026-08-30 Release: Qwen 3.8 Flash and GLM-5.3 Flash — Blog of Siqi Du (杜思齐)">
+<meta property="og:description" content="Two new Flash-tier models top their harnesses on LiveCuratorBench: Qwen 3.8 Flash scores 20.67/22 on the Qoder harness, the highest score recorded on the benchmark and the only Qoder model past 19, while GLM-5.3 Flash scores 19.67/22 on the opencode harness, the first model there to hold the input-pollution probe in all three runs. A control retest attributes the GLM gain to the model rather than the harness upgrade, and a rubric-calibration audit corrects two published scores (Grok 4.6 to 18.33, HY3 to 18.00).">
+<meta property="og:url" content="https://fourier7754.github.io/siqi_du/blog/live-curator-benchmark-2026-08-30.html">
+<meta property="og:image" content="https://fourier7754.github.io/siqi_du/images/live-curator-benchmark-qoder-02.png">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "LiveCuratorBench 2026-08-30 Release: Qwen 3.8 Flash and GLM-5.3 Flash",
+  "datePublished": "2026-08-30",
+  "author": {
+    "@type": "Person",
+    "name": "Siqi Du",
+    "url": "https://fourier7754.github.io/siqi_du/"
+  },
+  "keywords": ["Benchmark", "agents", "evaluation", "memory", "meta-knowledge", "qoder"],
+  "url": "https://fourier7754.github.io/siqi_du/blog/live-curator-benchmark-2026-08-30.html"
+}
+</script>
+<meta name="google-site-verification" content="fQZQD0EwLaSOrp3EbALt2rjxHEY9pUvWuh1fS96xgNk">
+<meta name="msvalidate.01" content="56D1B3DBCF345410DA9431AFE01788E7">
+<link rel="icon" href="../images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+<link rel="manifest" href="../images/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css?v=20260823a">
+<script src="../assets/vendor/highlight.min.js" defer></script>
+<script src="posts.js" defer></script>
+<script src="../assets/js/blog.js" defer></script>
+<script src="../assets/js/main.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.hljs) hljs.highlightAll();
+});
+</script>
+<script>
+/* GoatCounter 访问量统计：仅线上加载，本地 file:// 预览不计数 */
+if (location.protocol === "https:") {
+  var gc = document.createElement("script");
+  gc.setAttribute("data-goatcounter", "https://fourier7754.goatcounter.com/count");
+  gc.async = true;
+  gc.src = "//gc.zgo.at/count.js";
+  document.head.appendChild(gc);
+}
+</script>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <a class="masthead-logo" href="../index.html">Siqi Du</a>
+  </div>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar blog-sidebar">
+    <img class="sidebar-avatar" src="../images/avatar.jpg" alt="Siqi Du">
+    <div class="blog-side-title"><a href="../index.html">Blog</a></div>
+    <div class="blog-side-nav"></div>
+    <noscript>
+      <div class="blog-side-section">
+        <div class="blog-side-label">Categories</div>
+        <div class="blog-side-cats">
+          <a class="blog-side-cat" href="../index.html"><span>All</span></a>
+          <a class="blog-side-cat" href="../index.html?cat=Benchmark"><span>Benchmark</span></a>
+          <a class="blog-side-cat" href="../index.html?cat=Research"><span>Research</span></a>
+          <a class="blog-side-cat" href="../index.html?cat=Opinion"><span>Opinion</span></a>
+          <a class="blog-side-cat" href="../index.html?cat=Review"><span>Review</span></a>
+        </div>
+      </div>
+    </noscript>
+  </aside>
+
+  <main class="content">
+    <a class="post-back" href="../index.html">← Back to Blog</a>
+    <h1 class="page-title">LiveCuratorBench 2026-08-30 Release: Qwen 3.8 Flash and GLM-5.3 Flash</h1>
+    <div class="post-meta" style="font-size:var(--fs-meta);color:var(--faint);margin-bottom:24px;">2026-08-30</div>
+
+    <div class="post-body">
+      <div class="post-tldr">
+        <div class="post-tldr-label">TL;DR</div>
+        <p>Two new Flash-tier models top their harnesses on LiveCuratorBench: Qwen 3.8 Flash scores 20.67/22 on the Qoder harness, the highest score recorded on the benchmark and the only Qoder model past 19, while GLM-5.3 Flash scores 19.67/22 on the opencode harness, the first model there to hold the input-pollution probe in all three runs. A control retest attributes the GLM gain to the model rather than the harness upgrade, and a rubric-calibration audit corrects two published scores (Grok 4.6 to 18.33, HY3 to 18.00).</p>
+      </div>
+
+      <p>Two Flash-tier models joined <a href="live-curator-benchmark.html">LiveCuratorBench</a> this cycle, one on each harness. Qwen 3.8 Flash ran the <a href="live-curator-benchmark-qoder.html">Qoder CLI harness</a> on August 27; GLM-5.3 Flash ran the opencode harness on August 29, in the same batch as HY4 preview (opencode go). The charts below follow the split comparison rule kept since the Qoder round: one entry per model at its strongest harness, opencode in blue and Qoder in green. The two headline results therefore sit in different colors, and the score gap between them carries the standing caveat—Qoder-side scores are self-contained, so cross-harness reads stay descriptive.</p>
+
+      <p><img src="../images/live-curator-benchmark-qoder-01.png" alt="Bar chart of average scores on LiveCuratorBench with one entry per model at its strongest harness, opencode entries in blue and Qoder entries in green: Qwen 3.8 Flash (Qoder) leads at 20.67; GLM-5.3, GLM-5.3 Flash, and Grok 4.5 tie at 19.67 on the opencode side; DeepSeek v4 Flash (official) follows at 19.33; Grok 4.6 stands at 18.33 after the rubric audit" loading="lazy"></p>
+
+      <p>Each model ran three independent times with vendor-default settings. Qwen 3.8 Flash's cost is metered in Qoder credits—the Qoder backend reports no token counts—converted at the price actually paid for the subscription. GLM-5.3 Flash runs on a subscription channel whose published price is a full-tier rate, so its per-run cost is an upper-bound estimate; HY4 preview's cost is metered from opencode session records. The automated scorer over-credited rubric item B1 in five of the six new opencode runs—line numbers appeared in the return-format strings of extracted entries without becoming "line numbers reduce hallucination" knowledge—and all five were corrected in review. That correction pass is also what surfaced the calibration question taken up at the end of this post.</p>
+
+      <table>
+        <caption>Table 1 · Score, tokens, and cost per run (new rounds, 3 runs per model)</caption>
+        <thead>
+          <tr><th>Model</th><th>R1</th><th>R2</th><th>R3</th><th>Avg</th><th>Range</th><th>Tokens/run</th><th>Cost/run</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Qwen 3.8 Flash (Qoder)</td><td>20</td><td>21</td><td>21</td><td><strong>20.67</strong></td><td>20–21</td><td>n/a <sup>3</sup></td><td>$0.020 <sup>3</sup></td></tr>
+          <tr><td>GLM-5.3 Flash</td><td>20</td><td>19</td><td>20</td><td><strong>19.67</strong></td><td>19–20</td><td>268.0K</td><td>$0.391 <sup>2</sup></td></tr>
+          <tr><td>HY4 preview (opencode go)</td><td>19</td><td>19</td><td>19</td><td><strong>19.00</strong></td><td>19–19</td><td>231.0K</td><td>$0.201 <sup>1</sup></td></tr>
+        </tbody>
+      </table>
+
+      <p><sup>1</sup> Metered from opencode session logs (main agent + reasoner subagent), HY4 preview via the opencode go channel.</p>
+
+      <p><sup>2</sup> Zhipu coding plan subscription, list-price estimate: ¥2.796 per run is the full-tier rate and therefore an upper bound for the Flash tier, converted at ¥7.15 = $1. Token counts are session-log sums (input + output + reasoning + cache read).</p>
+
+      <p><sup>3</sup> The Qoder backend reports no token counts. Cost is metered in Qoder credits (main agent + reasoner subagent sessions), converted at the price actually paid: ¥159 per 6,000 credits ≈ $0.00371 per credit (¥7.15 = $1).</p>
+
+      <h2>What the results show</h2>
+
+      <p><strong>Qwen 3.8 Flash is the first Qoder model past 19.</strong> Its 20.67 (20/21/21) leads the Qoder field's previous front-runner, Qwen 3.8 Max (18.67), by two points. The edge concentrates in two rubric items. The input-pollution probe (G5)—deriving that model-facing text doubles as few-shot demonstrations, so a contaminated input teaches contamination—came in at full marks in all three runs; the other seven Qoder models, across twenty runs between them, never got past 1 on it. The always-on inline rule (G7) also held at full marks throughout. It additionally took the first B1 points recorded anywhere: 1 in runs two and three for extracting that line-number annotation exists as a practice (run one scored 0 under the scoring line). At 5.27 credits a run, about $0.020, it costs roughly a twelfth of Qwen 3.8 Max's $0.259.</p>
+
+      <p><img src="../images/live-curator-benchmark-qoder-02.png" alt="Scatter plot of cost per run versus score with one point per model at its strongest harness, color encoding harness and marker shape encoding vendor: Qwen 3.8 Flash (Qoder SOTA) sits top left at $0.020 and 20.67; Grok 4.5 and GLM-5.3 Flash carry the opencode SOTA tags at 19.67; DeepSeek v4 Flash (official) keeps the best-value tag" loading="lazy"></p>
+
+      <p><strong>GLM-5.3 Flash brings the input-pollution probe back to the opencode side.</strong> Its 19.67 (20/19/20) includes full marks on G5 in all three runs—each run derived, in its own phrasing, that the rule text itself is a demonstration and a violating system prompt re-teaches the banned behavior every round. The only other opencode model to hold G5 across all three runs is Grok 4.5. Before this cycle the probe had been cleared in just 4 of the first 24 opencode runs, all in round two, which is what made it look like an environment effect; three independent clears from a second model family make it a usable read on model capability. The rest of the scorecard is steady: every run forgoes the B1 pair—line-number knowledge no model has extracted, worth 2—which leaves R1 and R3 perfect at 20, and R2 adds one deduction, a dedup item (Q2), to land at 19.</p>
+
+      <p><strong>The harness upgrade is not the story—the model is.</strong> The opencode stack moved to 1.18.23 between the August 15 round and this batch; the new version even forced a bench-agent fix, since subagent spawns now require a description field. To separate model change from environment change, two controls were rerun on the upgraded stack. DeepSeek v4 Flash (opencode go) reproduced its old baseline exactly—19/19/19, G5 at 1 in every run—so the upgrade alone lifts nothing. GLM-5.3 full, which scored 18.67 with zero G5 clears on August 15, scored 19/20/20 = 19.67 with G5 in all three runs. With the gain appearing in both GLM tiers under a harness that leaves a DeepSeek baseline untouched, the reading is a model-side update (or a recent vendor-side change), not a harness effect. The charts now show GLM-5.3 at its retested 19.67; the original 18.67 stays on the August 15 post's table, which carries an update note.</p>
+
+      <p><strong>Whether Flash beats full depends on the family.</strong> In the Qwen family the Flash tier now leads outright: Qwen 3.8 Flash's 20.67 sits two points above Qwen 3.8 Max's 18.67 on the same harness, and 4.67 above Qwen 3.7 Flash's 16.00—a number that averages that model's two valid runs, after its round two stalled in a retry loop against the stage-validation hook and was discarded under the failure rule. In the GLM family the tiers meet: GLM-5.3 Flash's 19.67 exactly ties the retested GLM-5.3 full. One family's small tier passed its big one; the other's matched it.</p>
+
+      <p><strong>One calibration audit, two corrected scores.</strong> The B1 corrections above prompted a full audit of how the scorer had been applying the rubric, after a suspicion that HY3's first-round score ran high. The ruling: a method-selection framework counts as extracted only when it stands as its own entry—embedded inside a writing-convention entry it scores 1 of 2, not 2. Applied back across published runs, it corrected HY3 from 18.33 to 18.00 and Grok 4.6 from 19.33 to 18.33, which changes the August 15 reading of Grok 4.6 from "the generation swap brought no gain" to "the swap costs 1.33." Every other published score held up: the framework in each remaining top score was already standalone, and the early batches' B1 zeros rechecked clean. The scoring runbook now lists the framework rule alongside the B1 and Q1 checks, and the affected pages have been corrected in place.</p>
+
+      <p>The task definition, rubric, and first thirteen-model results are on the <a href="live-curator-benchmark.html">LiveCuratorBench main page</a>; the six-model Qoder harness round is on the <a href="live-curator-benchmark-qoder.html">Qoder round page</a>; the August 15 opencode releases are on <a href="live-curator-benchmark-2026-08-15.html">their release post</a>.</p>
+    </div>
+
+    <div class="post-end">
+      <div class="post-end-sep"></div>
+      <div class="post-taxonomy">
+        <a class="cat-badge" href="../index.html?cat=Benchmark">Benchmark</a>
+        <a class="tag-chip" href="../index.html?tag=agents">#agents</a>
+        <a class="tag-chip" href="../index.html?tag=evaluation">#evaluation</a>
+        <a class="tag-chip" href="../index.html?tag=memory">#memory</a>
+        <a class="tag-chip" href="../index.html?tag=meta-knowledge">#meta-knowledge</a>
+        <a class="tag-chip" href="../index.html?tag=qoder">#qoder</a>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <span>© 2026 Siqi Du</span>
+  <span>Last updated: Aug 2026</span>
+</footer>
+
+</body>
+</html>

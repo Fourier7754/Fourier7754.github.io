@@ -136,7 +136,7 @@ if (location.protocol === "https:") {
 
       <p>Thirteen models completed three runs each in two batches on 2026-07-31 and 2026-08-01: eight over official or subscription channels, five over the opencode go channel. Scores are averages out of 22.</p>
 
-      <p><img src="../images/live-curator-benchmark-02.png" alt="Bar chart of average scores, sorted: Grok 4.5 19.67, DeepSeek v4 Flash (official) 19.33, DeepSeek v4 Flash (opencode go) 19.00, GLM-5.2 18.67, Kimi K3 18.67, HY3 18.33, MiniMax M3 18.00, DeepSeek v4 Pro 17.67, GPT-5.6 Luna 17.33, Kimi K2.7 16.33, mimo 2.5 pro 16.00, Qwen 3.7 Plus 15.33, mimo 2.5 14.33" loading="lazy"></p>
+      <p><img src="../images/live-curator-benchmark-02.png" alt="Bar chart of average scores, sorted: Grok 4.5 19.67, DeepSeek v4 Flash (official) 19.33, DeepSeek v4 Flash (opencode go) 19.00, GLM-5.2 18.67, Kimi K3 18.67, HY3 18.00, MiniMax M3 18.00, DeepSeek v4 Pro 17.67, GPT-5.6 Luna 17.33, Kimi K2.7 16.33, mimo 2.5 pro 16.00, Qwen 3.7 Plus 15.33, mimo 2.5 14.33" loading="lazy"></p>
 
       <p><img src="../images/live-curator-benchmark-03.png" alt="Scatter plot of average cost per run (log scale, dollar ticks) versus average score with a faint dashed fit curve: every point is labeled with its model name, vendor encoded by color and marker shape; Grok 4.5 carries a SOTA tag at top right, DeepSeek v4 Flash (official) carries a best-value tag at top left" loading="lazy"></p>
 
@@ -150,7 +150,7 @@ if (location.protocol === "https:") {
         <tr><td>DeepSeek v4 Flash (opencode go)</td><td><strong>19.00</strong></td><td>396.9K</td><td>$0.035 ¹</td></tr>
         <tr><td>GLM-5.2</td><td><strong>18.67</strong></td><td>196.1K</td><td>≈$0.24 ²</td></tr>
         <tr><td>Kimi K3</td><td><strong>18.67</strong></td><td>154.0K</td><td>≈$0.48 ²</td></tr>
-        <tr><td>HY3</td><td><strong>18.33</strong></td><td>195.5K</td><td>$0.041 ¹</td></tr>
+        <tr><td>HY3</td><td><strong>18.00</strong></td><td>195.5K</td><td>$0.041 ¹</td></tr>
         <tr><td>MiniMax M3</td><td><strong>18.00</strong></td><td>216.7K</td><td>$0.087 ¹</td></tr>
         <tr><td>DeepSeek v4 Pro</td><td>17.67</td><td>225.9K</td><td>$0.051 ¹</td></tr>
         <tr><td>GPT-5.6 Luna</td><td>17.33</td><td>285.2K</td><td>$0.034 ¹</td></tr>
@@ -199,6 +199,8 @@ if (location.protocol === "https:") {
       <h2>Appendix: measurement details</h2>
 
       <p>Cost. ¹ Metered billing, taken from actual opencode session charges. ² Subscription channels have no per-run billing, so cost is estimated from official list prices in CNY (input / cache-hit / output rates), converted at ¥7.15 = $1; estimates exist only for cross-table comparison.</p>
+
+      <p>Corrections. A 2026-08-30 rubric-calibration audit revised HY3's score to 18.00 from the originally reported 18.33: a method-selection framework embedded inside another entry scores 1 of 2 points rather than 2, and HY3's second run embedded one. Details in the <a href="live-curator-benchmark-2026-08-30.html">2026-08-30 release notes</a>.</p>
 
       <p>Tokens. Token counts come from local opencode session storage and sum the main-agent and subagent sessions: input + output + reasoning + cache read (cache writes were zero throughout). HY3's third round failed on first attempt (about 156K tokens, $0.042, not counted) and succeeded on retry.</p>
 
